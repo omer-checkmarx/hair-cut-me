@@ -11,6 +11,9 @@ const styles = {
 		display: 'inline-flex',
 	    position: 'absolute',
 		bottom: 0,
+		background: '#282c34',
+		'padding-left': '5px',
+		'border-radius': '10px 10px 0px 0px',
 		left: '25%'
 	}
   };
