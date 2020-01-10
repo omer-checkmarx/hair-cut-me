@@ -24,15 +24,15 @@ class InvitePage extends React.Component{
 		return (
 			<React.Fragment>
 				<MenuToolbar></MenuToolbar>
-				<div className="App" className={classes.page}>
+				<div className={classes.page}>
 					<Card className={classes.card} variant="outlined">
 						<CardContent>
-							<OrderMenu title="Today"/>
+							<OrderMenu title="היום"/>
 						</CardContent>
 					</Card>
 					<Card className={classes.card} variant="outlined">
 						<CardContent>
-							<OrderMenu title="Tommorow"/>
+							<OrderMenu title="מחר"/>
 						</CardContent>
 					</Card>
 				</div>

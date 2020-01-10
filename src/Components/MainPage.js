@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import MenuToolbar from './MenuToolbar.js';
-import {Link} from 'react-router-dom';
+import DelayLink from 'react-delay-link';
 
 class MainPage extends React.Component{
 	render() {
@@ -17,11 +17,11 @@ class MainPage extends React.Component{
 					<Logo variant="big"></Logo>
 					<MainMenu></MainMenu>
 				</div>
-				<Link to="/invite">
+				<DelayLink delay={250} to="/invite">
 					<Fab color='primary' className="addingFab" style={{'position': 'absolute', 'bottom': '20px', 'left': '20px'}}>
 						<AddIcon />
 					</Fab>
-				</Link>
+				</DelayLink>
 			</React.Fragment>
 		);
 	}

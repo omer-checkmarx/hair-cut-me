@@ -2,7 +2,8 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom';
+import DelayLink from 'react-delay-link';
+import AlertMessage from './AlertMessage.js';
 
 const styles = {
   root: {
@@ -17,16 +18,19 @@ class MainMenu extends React.Component{
 	render(){
 		const { classes } = this.props;
 		return (
-			<React.Fragment>
-				<Button variant="outlined" className={classes.root} color="primary">
-					History
-				</Button>
-				<Link to="/invite">
-					<Button variant="outlined" className={classes.root} color="primary">
-						Invite
+			<div style={{'display': 'inline-flex'}}>
+				<DelayLink delay={250} to="/history">
+					<Button variant="contained" className={classes.root} color="primary">
+						היסטוריה
 					</Button>
-				</Link>
-			</React.Fragment>
+				</DelayLink>
+				<DelayLink delay={250} to="/invite">
+					<Button variant="contained" className={classes.root} color="primary">
+						הזמן
+					</Button>
+				</DelayLink>
+				<AlertMessage />
+			</div>
 		);
 	}
 }
