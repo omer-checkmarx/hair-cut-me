@@ -5,16 +5,20 @@ import PropTypes from 'prop-types';
 
 const styles = {
 	small: {
-		height: '70px',
+		height: '100px',
 	},
 	logosmall: {
-		display: 'inline-flex',
-	    position: 'absolute',
-		bottom: 0,
+		width: '100%',
+		bottom: '0',
+		position: 'absolute',
 		background: '#282c34',
-		'padding-left': '5px',
-		'border-radius': '10px 10px 0px 0px',
-		left: '25%'
+		'text-align': 'center'
+	},
+	toolbar:{    
+		'font-weight': '800',
+		'font-size': '28px',
+		width: '100%',
+		'text-align': 'center'
 	}
   };
 
@@ -23,7 +27,6 @@ class Logo extends React.Component{
 		return (
 			<div>
 				<img src={logo} className="App-logo" alt="logo" />
-				<h1>HairCutter</h1>
 			</div>
 		);
 	}
@@ -32,16 +35,26 @@ class Logo extends React.Component{
 		const { classes } = this.props;
 		return (
 			<div className={classes.logosmall}>
-				<h2>HairCutter</h2>
-				<img src={logo} className={classes.small}  height="100%" alt="logo" />
+				<img src={logo} className={classes.small} alt="logo" />
 			</div>
 		);
 	}
+
+	toolbar = () => {
+		const { classes } = this.props;
+		return (
+			<div className={classes.toolbar}>
+				HairCutter
+			</div>
+		);
+	};
 	
 	render(){
 		if(this.props.variant === "big"){
 			return this.big();
-		} else{
+		} else if(this.props.variant == "toolbar") {
+			return this.toolbar();
+		} else {
 			return this.little();
 		}
 	}

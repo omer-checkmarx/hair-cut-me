@@ -8,8 +8,8 @@ import AlertMessage from './AlertMessage.js';
 const styles = {
   root: {
 	margin: '15px',
-	width: '130px',
-	height: '130px'
+	width: '120px',
+	height: '120px'
   }
 };
 			
@@ -19,9 +19,9 @@ class MainMenu extends React.Component{
 		const { classes } = this.props;
 		return (
 			<div style={{'display': 'inline-flex'}}>
-				<DelayLink delay={250} to="/history">
+				<DelayLink delay={250} to="/detail">
 					<Button variant="contained" className={classes.root} color="primary">
-						היסטוריה
+						פרטים
 					</Button>
 				</DelayLink>
 				<DelayLink delay={250} to="/invite">

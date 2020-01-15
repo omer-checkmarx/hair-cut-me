@@ -4,6 +4,7 @@ import MenuToolbar from './MenuToolbar.js';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import { ApplicationContext } from '../ApplicationContext.js';
 
 class DetailPage extends React.Component{
 	render() {
@@ -14,19 +15,23 @@ class DetailPage extends React.Component{
 		return (
 			<React.Fragment>
 				<MenuToolbar></MenuToolbar>
-				<div className="App">
-					<h1>{this.props.title}</h1>
-					<h4>{this.props.subtitle}</h4>
-					{this.props.media}
-					<Card variant="outlined" style={{"margin": "30px"}}>
-						<CardContent>
-							<Typography align="left">
-								{this.props.details}
-							</Typography>
-						</CardContent>
-					</Card>
-					{additionalInfo}
-				</div>
+					<ApplicationContext.Consumer>
+						{(context) => (
+							<div className="App">
+								<h1>{context.barber.name}</h1>
+								<h4>{context.barber.address}</h4>
+								{context.barber.locationImage}
+								<Card variant="outlined" style={{"margin": "30px"}}>
+									<CardContent>
+										<Typography align="left">
+											{context.barber.detail}
+										</Typography>
+									</CardContent>
+								</Card>
+								{additionalInfo}
+							</div>
+						)}
+					</ApplicationContext.Consumer>
 				<Logo variant="little" />
 			</React.Fragment>
 		);

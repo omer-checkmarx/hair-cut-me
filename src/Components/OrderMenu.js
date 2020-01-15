@@ -4,20 +4,25 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import AlertMessage from './AlertMessage';
+import axios from 'axios';
 
 class OrderMenu extends React.Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			records : [
-				{id: "0", val: "10:00 - 10:30", avail: false, byMe: false},
-				{id: "1", val: "10:30 - 11:00", avail: true, byMe: true},
-				{id: "2", val: "11:00 - 11:30", avail: false, byMe: true},
-				{id: "3", val: "11:30 - 12:00", avail: true, byMe: true},
-				{id: "4", val: "12:00 - 12:30", avail: true, byMe: true},
-				{id: "5", val: "12:30 - 13:00", avail: false, byMe: false}],
+			records : [],
 				successOpen: false
 		};
+	}
+
+	componentDidMount(){
+		axios.get('http://localhost/v1/getinvitations/4cc90a87-b00f-4b01-bc69-86ab8fc21f25/2020-01-13')
+			.then((response) => {
+				this.setState({records: response.data});
+			})
+			.catch((response) => {
+				console.log(response);
+			})
 	}
   
 	handleInviteClick = () => {
@@ -33,7 +38,7 @@ class OrderMenu extends React.Component{
 
 	generateRecord(item){
 		let button = <Button color='secondary' variant='contained' disabled>תפוס</Button>
-		if(item.avail){
+		if(item.state === 0){
 			button = <Button color='primary' variant='contained' onClick={this.handleInviteClick}>הזמן</Button>;
 		}
 		else if(item.byMe){
@@ -41,7 +46,7 @@ class OrderMenu extends React.Component{
 		}
 		return (
 			<ListItem key={item.id}>
-				<ListItemText primary={item.val} />
+				<ListItemText primary={item.description} />
 				{button}
 			</ListItem>
 		);

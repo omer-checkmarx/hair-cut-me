@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.sample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.haircutter.haircutter" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>HairCutter</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -8,7 +8,7 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-	<icon src="ic_launcher.png" platform="ios" width="57" height="57" density="mdpi" />
+	<icon src="iconplaystore.png" platform="ios" width="57" height="57" density="mdpi" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

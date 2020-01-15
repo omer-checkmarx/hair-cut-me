@@ -1,0 +1,11 @@
+{
+	"android": {
+		"release": {
+			"keystore": "C:\\Users\\Omerd\\Desktop\\CordovaRel.keystore",
+			"storePassword": "ASD147asd",
+			"alias": "CordovaRel",
+			"password" : "ASD147asd",
+			"keystoreType": ""
+		}
+	}
+}

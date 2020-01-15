@@ -18,6 +18,7 @@ import CallIcon from '@material-ui/icons/Call';
 import SettingsIcon from '@material-ui/icons/Settings';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DelayLink from 'react-delay-link';
+import Logo from './Logo.js';
 
 class MenuToolbar extends React.Component{
 	constructor(props){
@@ -104,6 +105,7 @@ class MenuToolbar extends React.Component{
 				  <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => this.toggleDrawer(true)}>
 					<MenuIcon />
 				  </IconButton>
+				  <Logo variant="toolbar"/>
 				  <IconButton edge="start" color="inherit" aria-label="menu" style={{'marginRight': 'auto'}}>
 					<NotificationsIcon />
 				  </IconButton>

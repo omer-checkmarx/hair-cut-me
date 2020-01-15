@@ -15,6 +15,9 @@ const styles = {
 	success: {
 		backgroundColor: '#3f51b5c7',
 	  },
+	  error: {
+		backgroundColor: '#d657578f',
+	  },
 	  icon: {
 		fontSize: 20,
 	  },
@@ -68,19 +71,22 @@ class AlertMessage extends React.Component{
 			open={open}
 			autoHideDuration={6000}
 			onClose={this.handleClose}>
-				<SnackbarContent
-					className={classes.success}
-					aria-describedby="client-snackbar"
-					message={
-					<span id="client-snackbar" className={classes.message}>
-						<h1>{message}</h1>
-					</span>
-					}
-					action={[
-					<IconButton key="close" aria-label="close" color="inherit" onClick={handleClose}>
-						<CloseIcon className={classes.icon} />
-					</IconButton>,
-					]} />
+				{() => (
+						<SnackbarContent
+						className={classes.success}
+						aria-describedby="client-snackbar"
+						message={
+						<span id="client-snackbar" className={classes.message}>
+							<h1>{message}</h1>
+						</span>
+						}
+						action={[
+						<IconButton key="close" aria-label="close" color="inherit" onClick={handleClose}>
+							<CloseIcon className={classes.icon} />
+						</IconButton>,
+						]} />
+					)
+				}
 			</Snackbar>
 		);
 	}

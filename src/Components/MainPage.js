@@ -6,6 +6,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import MenuToolbar from './MenuToolbar.js';
 import DelayLink from 'react-delay-link';
+import { ApplicationContext } from '../ApplicationContext.js';
 
 class MainPage extends React.Component{
 	render() {
@@ -15,6 +16,11 @@ class MainPage extends React.Component{
 				<div className="App">
 					<Box className="mainFlex"></Box>
 					<Logo variant="big"></Logo>
+					<ApplicationContext.Consumer>
+						{(context) => (
+						<h1>{context.user.Name}</h1>
+							)}
+					</ApplicationContext.Consumer>
 					<MainMenu></MainMenu>
 				</div>
 				<DelayLink delay={250} to="/invite">
